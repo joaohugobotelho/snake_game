@@ -75,17 +75,38 @@ function jogo() {
         positionY = 0
     }
 
-    snake.push({x:positionX, y:positionY})
 
     // config cobra
     ctx.fillStyle = "#7efa09";
     for(let i= 0;i < snake.length; i++) {
-        ctx.fillRect(snake[i].x*grid, snake[i].y*grid, grid -1, grid -1)
+        ctx.fillRect(snake[i].x*grid, snake[i].y*grid, grid -1, grid -1);
+        if(snake[i].x == positionX && snake[i].y == positionY) {
+            tam = 3;
+        }
     }
+
+    // posicionando a cobra
+
+    snake.push({x:positionX, y:positionY})
+
 
     //apagando
 
     while(snake.length > tam) {
         snake.shift();
     }
+
+    //configurando a comida
+
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(foodX * grid, foodY * grid, grid-1, grid-1);
+
+    // comendo a comida
+
+    if(positionX == foodX && positionY == foodY) {
+        tam++;
+        foodX = Math.floor(Math.random()*grid);
+        foodY = Math.floor(Math.random()*grid);
+    }
+   
 }
