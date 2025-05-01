@@ -22,22 +22,30 @@ window.onload = function() {
     document.addEventListener("keydown", function(e){
         switch(e.keyCode){
             // seta direita = 39
+            // D= 68
             case 39:
+            case 68:    
                 velX  = 1;
                 velY = 0
                 break;
             //seta esquerda = 37 
+            // A = 65
             case 37:
+            case 65:    
                 velX = -1
                 velY = 0
                 break;
             // seta cima = 38
+            // W = 87
             case 38:
+            case 87:
                 velX = 0;
                 velY = -1;
                 break;
             //seta baixo = 40
+            // S = 83
             case 40:
+            case 83:    
                 velX = 0;
                 velY = 1;
                 break;
